@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>hcc-medical GmbH Deutschland</title>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type">
+<meta name="GENERATOR" content="MSHTML 8.00.6001.18259">
+<meta name="vs_targetSchema" 
+content=http://schemas.microsoft.com/intellisense/ie5>
+<script type="text/javascript" src="/axStats/axStats.js"></script>
+<link rel="stylesheet" type="text/css" href="/assets/hcc.css"><link rel="stylesheet" 
+type=text/css href="/assets/hcc_search.css">
+<script type="text/javascript" 
+src="/2112PowerWindows/runtime12/NS2112.js"></script>
+
+<script type="text/javascript" 
+src="/2112PowerWindows/runtime12/snapLoader.js"></script>
+
+<script type="text/javascript"> 
+    //A pseudo snapIn - just to check passing it as argument.
+
+    dbgSnap = function()
+    {
+            this.Name = '2112VeriSnap';
+    }
+
+    var loader ;
+
+      snapDef = function(strURL) {
+                    this.URL = strURL
+      }
+
+      cbAsync = function(strData, 
+            clientData //clientdata will be the String id of the result element
+
+          ){
+            var elResult = null ;
+          //alert(strData) ;
+          if(clientData){
+              elResult = document.getElementById(clientData) ;
+              if(elResult){
+                  elResult.innerHTML = strData ; 
+              }
+
+          }
+
+      }
+
+      f1 = function()
+      { 
+          //!Need to set PASSTHRU parameter, else parameters would be cut on transfer
+         var strURL = "/2112PowerWindows/php/loadSnap.php?" 
+                      + "PASSTHRU=1&MODULE=http://oe247.planet-hosting.net/hcc_search_jsp/hcc_ajaxSearch.jsp?SHOWCOUNT=1&query=" ;
+         var elQuery =  document.getElementById('query') ;
+
+         if(!elQuery){ 
+             alert('There is no search field to be found - check element INPUT with id query') ;
+             return ;
+         }
+
+         strURL += elQuery.value ;
+                    var asyncGet = new NS2112.snapInLoaderGlobals.asyncXHR('GET', cbAsync, false, "hcc_searchresult") ;	   
+                       NS2112.snapInLoaderGlobals.makeRequest2 (
+                                            asyncGet, 
+                                            strURL, //the snaploader (php/bsp/jsp).
+                                            true,  //call async
+                                            asyncGet.myXHRCallback ) ;
+      }
+      
+      checkKey = function(evt, data){
+          if( 13 == evt.charCode ){
+              f1() ;
+          }
+      }
+      
+      initMe = function(){
+          NS2112.statsMe();
+          document.onkeypress = checkKey ;
+      }
+
+      
+    </script>
+
+<meta name="GENERATOR" content="Microsoft Visual Studio 6.0"><!-- OnLoad will load the custom result -->
+
+<style> table, td, th { border-color: #cccccc; border-style: solid; } table { border-width: 0 0 1px 1px; border-spacing: 0px; border-collapse: collapse; } td { border-width: 1px; } th { border-width: 1px; } </style></head>
+<body onload="initMe();">
+<div 
+style="POSITION: absolute; WIDTH: 240px; HEIGHT: 629px; TOP: 167px; LEFT: 12px" 
+id=hcc_menu language=javascript onclick="return hcc_menu_onclick()">
+<ul>
+  <li><a href="index.html">Home</a> 
+  <li><a onmouseover="javascript:void(0);" href="portfolio.html">Portfolio</a> 
+  <li><a onmouseover="javascript:void(0);" href="About.html">?::?</a> 
+  <li><a onmouseover="javascript:void(0);" href="impressum.html">Impressum</a> 
+  </li></ul>
+<div id="scantoweb"><br><br><br>hcc::medical <br>Scan-To-Web Application<br><br><a 
+href="http://www.hcc-medical.com/buildingblocks/scan/hcc_scan.php?lang=en"><img 
+alt="hcc::medical Scan-To-Web Screenshot." 
+src="http://www.hcc-medical.com/buildingblocks/scan/images/hcc_barcode_teaser.png"> 
+</a></div>
+<div id="vdesk"><br><br><br>hcc::medical <br>License free<br><br>Virtual Desktop 
+for SAPGUI<br><br><a 
+href="http://www.hcc-medical.com/r3vdesk/hcc_r3vdesk.php"><img 
+alt="R3VDesk Screenshot." 
+src="http://www.hcc-medical.com/r3vdesk/images/r3vd_lite_teaser.jpg"></a> 
+</div></div>
+<div id="hcc_search" align="center">
+<table border="0" cellspacing="1" cellpadding="1" width="100%">
+  <tbody>
+  <tr>
+    <td width="20%"><font size="2"><img 
+      src="http://www.hcc-medical.com/images/ger22x16.jpg">&nbsp;</font><font 
+      size=2 face=Arial> <strong>hcc::medical GmbH<br></strong>Healthcare 
+      Component Software<br>Rettigheimer Str. 30<br><b>76684 
+      Östringen/Germany</b><br></font></td>
+    <td width="60%">
+      <div id="searchInput" align="center"><img align="middle" 
+      src="http://www.hcc-medical.com/images/hcc_banner.jpg"> <input id="query" 
+      size=72 name=query><button id="search" onclick="f1();">Search</button> 
+    </div></td>
+    <td width="20%">
+      <p><br><img 
+      src="http://www.hcc-medical.com/images/israel-22x16.gif">&nbsp; <font 
+      size=2 face=Arial><strong>hcc::medical GmbH EMEA</strong><br>Healthcare 
+      Component Software<br>Bar Kochva 46<br></font><font size="2" 
+      face=Arial><b>Herzllya/Israel</b> <br></p></font></td></tr></tbody></table>
+<p>&nbsp;</p></div>
+<div>
+<div style="POSITION: absolute; WIDTH: 60%; TOP: 225px; LEFT: 264px" 
+id=hcc_searchresult><!-- Searchresults go here. Use Stylesheet to design result. -->
+<p class="search_result_p"><a target="_blank" 
+href="http://2112portals.com/KLAU/Klinischer%20Auftrag%20Kundenbaustein.htm">Klinischer 
+Auftrag Kundenbaustein</a> &nbsp;&nbsp;&nbsp;</p>
+<p class="searchResultShortText">Klinischer Auftrag Kundenbaustein(Header) GOTO 
+<span class="highlightText">KLAU</span> DEVELOPERS WORKPRINT. Reference to master 
+script(GERMAN Version only) Klinischer Auftrag(Clinical Order) Developer 
+Workprint(PDF 1.1 Megabytes). Aufgabenstellung: Bereits vor Aufnahme des 
+Patienten (z.B.</p>
+<p 
+class=searchResultFileDetails>http://2112portals.com/KLAU/Klinischer%20Auftrag%20Kundenbaustein.htm</p></div></div></body></html>

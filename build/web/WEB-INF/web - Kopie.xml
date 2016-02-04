@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <filter>
+      <filter-name>EncodingFilter</filter-name>
+      <filter-class>EncodingFilterSrvlt</filter-class>
+      <init-param>
+         <param-name>encoding</param-name>
+         <param-value>UTF-8</param-value>
+      </init-param>
+   </filter>
+    
+    <servlet>
+        <servlet-name>postText</servlet-name>
+        <servlet-class>postTextSrvlt</servlet-class>
+        <init-param>
+            <param-name>text</param-name>
+            <param-value/>
+        </init-param>
+        <init-param>
+            <param-name>urn</param-name>
+            <param-value/>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>loadSnapSrvlt</servlet-name>
+        <servlet-class>loadSnapSrvlt</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>postText</servlet-name>
+        <url-pattern>/postText</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loadSnapSrvlt</servlet-name>
+        <url-pattern>/loadSnapSrvlt</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

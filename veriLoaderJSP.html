@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+
+<link type="text/css" rel="stylesheet" href="hcc_search.css">
+<script type="text/javascript"  src="/javascript/NS2112.js"></script>
+<script type="text/javascript"  src="/javascript/snapLoader.js"></script>	
+<script type="text/javascript"> 
+//A pseudo snapIn - just to check passing it as argument.
+
+dbgSnap = function()
+{
+	this.Name = '2112VeriSnap';
+}
+
+var loader ;
+
+  snapDef = function(strURL) {
+		this.URL = strURL
+  }
+
+  cbAsync = function(strData, 
+        clientData //clientdata will be the String id of the result element
+        
+      ){
+        var elResult = null ;
+      //alert(strData) ;
+      if(clientData){
+          elResult = document.getElementById(clientData) ;
+          if(elResult){
+              elResult.innerHTML = strData ; 
+          }
+          
+      }
+      
+  }
+ 
+  f1 = function()
+  { 
+     var strURL = "http://oe247.planet-hosting.net/loadSnapSrvlt?" 
+                  + "MODULE=http://oe247.planet-hosting.net/hcc_search_jsp/searchURN.jsp?query=" ;
+     var elQuery =  document.getElementById('query') ;
+     
+     if(!elQuery){ 
+         alert('There is no search field to be found - check element INPUT with id query') ;
+         return ;
+     }
+     
+     strURL += elQuery.value ;
+                var asyncGet = new NS2112.snapInLoaderGlobals.asyncXHR('GET', cbAsync, false, "hcc_searchresult") ;	   
+		   NS2112.snapInLoaderGlobals.makeRequest2 (
+					asyncGet, 
+					strURL, //the snaploader (php/bsp/jsp).
+					true,  //call async
+					asyncGet.myXHRCallback ) ;
+  }
+  
+  f2 = function()
+  {
+   
+  }
+</script>
+
+
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<TITLE>Checking the loader...</TITLE>
+</HEAD>
+<BODY>
+
+<P>&nbsp;</P>
+<INPUT   id="query" NAME="query" size="72"/>
+<button id="search" onclick="f1();">1</button >
+<button id="test" onclick="f2();">2</button >
+<div id="hcc_searchresult">
+    <!-- Searchresults go here. Use Stylesheet to design result. -->
+</div>
+</BODY>
+</HTML>

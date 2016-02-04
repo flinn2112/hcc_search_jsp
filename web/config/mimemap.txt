@@ -1,0 +1,6 @@
+doc;application/msword
+dot;application/msword
+xls;application/vnd.ms-excel
+xlsx;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+xla;application/vnd.ms-excel
+xlt;application/vnd.ms-excel
