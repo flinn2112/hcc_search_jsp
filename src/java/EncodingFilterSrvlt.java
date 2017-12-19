@@ -6,8 +6,8 @@
 import java.io.IOException;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+//1.7.5 disabled: application would not start (Lifecycle Exception) import org.apache.commons.logging.Log;
+//1.7.5 dto. import org.apache.commons.logging.LogFactory;
 
 
 /**
@@ -20,7 +20,7 @@ import org.apache.commons.logging.LogFactory;
  */
 public class EncodingFilterSrvlt implements Filter {
 
-   private static final Log logger = LogFactory.getLog(EncodingFilterSrvlt.class);
+   //1.7.5 private static final Log logger = LogFactory.getLog(EncodingFilterSrvlt.class);
    private String encoding = "UTF-8";
 
    /**
@@ -29,9 +29,10 @@ public class EncodingFilterSrvlt implements Filter {
     * If none is specified use UTF-8.
     */
    public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
-      if (logger.isDebugEnabled()) {
+      /*if (logger.isDebugEnabled()) {
          logger.debug("filtering: " + ((HttpServletRequest)request).getRequestURL());
       }
+       */
       request.setCharacterEncoding(encoding);
       filterChain.doFilter(request, response);
       //Setting the character set for the response
@@ -43,15 +44,15 @@ public class EncodingFilterSrvlt implements Filter {
     * Initialize the filter.
     */
    public void init(FilterConfig filterConfig) throws ServletException {
-      logger.info("Filter EncodingFilter initializing...");
+      //logger.info("Filter EncodingFilter initializing...");
       String str = filterConfig.getInitParameter("encoding");
       if (str != null) {
          encoding = str;
       }
-      logger.info("Using encoding: " + this.encoding);
+      //logger.info("Using encoding: " + this.encoding);
    }
 
    public void destroy() {
-        logger.info("Filter EncodingFilter destroyed...");
+        //logger.info("Filter EncodingFilter destroyed...");
    }
 }

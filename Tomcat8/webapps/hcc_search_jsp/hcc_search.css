@@ -1,0 +1,114 @@
+/* 
+    Document   : hcc_search
+    Created on : Dec 8, 2011, 9:25:59 AM
+    Author     : frankkempf
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*    
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+body{
+    font-family: Helvetica, sans-serif ;    
+}
+
+.root { 
+    display: block;
+}
+
+
+
+.searchResultFileDetails{
+    color:green;
+    font-size:small ;
+    margin-top:    0px;
+    
+}
+
+.search_result_p{
+    /*-------------------------------------*/
+    margin-top:    17px  !important;
+    margin-bottom: 4px   !important;
+}
+
+.searchResultShortText{
+    line-height: 1.5;
+    margin-top:    2px;
+    margin-bottom:    5px;
+    color: #666666 ;
+    font-size: small ;
+}
+
+
+.lastModified {
+    color:silver;   
+    margin-top:    0px;
+    margin-bottom: 0px;
+}
+
+.birthdate{
+    color:dimgray; 
+    margin-top:    0px;
+    margin-bottom: 0px;
+}
+
+.admdate{
+    color:dimgray; 
+    margin-top:    0px;
+    margin-bottom: 0px;
+}
+
+.short_summary {
+    color:dimgray;
+    font-size: smaller ;
+}
+.highlightText{
+    text-decoration:underline ;
+   font-weight: bold ;
+    color:black ;
+}
+
+.detailData {    
+    margin-left: 20px;
+    font-size:  smaller ;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.text{    
+    font-family: Helvetica, sans-serif ;
+    font-size:  smaller ;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.patnr{    
+    color: green ;
+    font-size:  smaller ;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.fallnr{    
+    color: dimgray ;
+    font-size:  smaller ;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.leftfloat{    
+    float:left;
+    border: 1px;
+   border-style: solid;
+   border-color: gainsboro;
+}
+
+.rightfloat{    
+   float: right ;
+   border: 1px;
+   border-style: solid;
+   border-color: gainsboro;
+   /*display: none;*/
+}
+.technicalInfo{ /*Infobox mit technischen Daten*/
+    font-size: smaller ;
+    overflow: auto ;
+}
+

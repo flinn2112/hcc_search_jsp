@@ -1,6 +1,7 @@
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
+ * Comment 10/2017: This servlet will fetch a file from the server.
  */
 
 import hcc_search.hcc_utils;
@@ -45,6 +46,7 @@ public class getContentSrvlt extends HttpServlet {
           String strExt = hcc_utils.getExtension(request.getParameter("fullpath")) ;
           String strApp = "text" ;
           String strType = "plain" ;
+          String strOS = System.getProperty("os.name").toLowerCase() ; //1.8.10.5
           String strMsg = null ;
           String strFullpath = null ;
           StringBuilder  sbAppPath = new StringBuilder() ;
@@ -54,7 +56,7 @@ public class getContentSrvlt extends HttpServlet {
           int len = 0;
           File file = null ;
           FileInputStream in = null ;
-          OutputStream out =null ;
+          OutputStream out  =null ;
           PrintWriter outpw = null ;
           htc.m_ht = mime.ht_MapMime ;   
           
@@ -66,6 +68,22 @@ public class getContentSrvlt extends HttpServlet {
           
         try{  
            strFullpath = request.getParameter("fullpath") ; 
+           //10/2017 it can happen that server and content is located together on a UNIX Box
+           //Leading to paths that contain mixed slashes(when indexer put som Windows files:
+           //This would prevent the fetch from being successful.
+           //When UNIX then 
+        
+           if( strOS.contains("windows")){
+           }
+           else{               
+               strFullpath = strFullpath.replace("\\", "/") ;
+           }
+       /*
+           outpw = response.getWriter(); 
+                strMsg = "Path [" + strFullpath  + "]<br> OS " + strOS ;                
+                outpw.print(strMsg) ;
+        */   
+           
           // strFullpath = "\\\\DLINK-12F187\\Volume_2\\SharedDownloads\\Projekte\\hcc\\hcc_search_jsp\\src\\java\\getContentSrvlt.java" ;
            //
            //strFullpath = "C:\\tmp\\netdrive.loghcc.txt" ;
@@ -88,6 +106,7 @@ public class getContentSrvlt extends HttpServlet {
                 out.write(buf, 0, len); 
             }
             in.close();
+            
             /*
             out.write(strMime.getBytes());
             out.write(strExt.getBytes());

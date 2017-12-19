@@ -1,0 +1,109 @@
+div.yuimenu
+{
+   width:220px ;  /*Breite eines Menukastens...*/
+   list-style-image	: none ;
+   
+}
+
+.yuimenubaritem-selected,
+.yuimenuitem-selected {
+
+    background-color: #002487;
+
+}
+
+.yuimenu li.selected, .yuimenubar li.selected{
+               background-color:#002487; /*000E69*/;
+            }
+
+
+
+
+
+            div#mymenubar.yuimenubar {
+            
+                /*background:url(img/menubar_background.gif) left center;*/
+
+               background:  url(/2112PowerWindows/assets/img/menubar_background.gif) left center;
+                border:1px ridge #ccc;
+                border-bottom-width:1px;
+                z-index:1000;                
+                FONT-SIZE: 9pt;
+
+            }
+
+/*The YUI Menu Overrides*/
+
+            
+
+
+            div#mymenubar.yuimenubar li.yuimenubaritem {
+
+                padding:4px 10px;
+                border:none;
+                color: #000;
+
+            }
+
+            div#mymenubar.yuimenubar li.yuimenubaritem.first-of-type a {
+            
+                text-indent:-6em;
+                
+					 /*YAHOO Logo - disabled*/
+                /*background:url(http://us.i1.yimg.com/us.yimg.com/i/us/nt/b/purpley.1.0.gif) center center no-repeat;*/
+					 
+
+                width:2em;
+                float:left;
+                overflow:hidden;
+                _margin-right:1em; /* IE 6 only */
+                /*display: none;*/
+            
+            }
+
+            div#mymenubar.yuimenubar div#yahoo.yuimenu li.yuimenuitem a {
+
+                float:none;
+            
+            }
+
+            div#mymenubar.yuimenubar .yuimenu {
+            
+                background:#edebeb;
+            
+            }
+
+            div#mymenubar.yuimenubar .yuimenu li.yuimenuitem a {
+            
+                text-indent:0;
+                background:none;
+                width:auto;
+                overflow:visible;
+                _margin-right:auto; /* IE 6 only */
+            
+            }            
+
+            div#mymenubar.yuimenubar li em.submenuindicator {
+
+                height:1px;
+                width:1px;
+                margin:0;
+            
+            }
+            
+            div#mymenubar div.yuimenu li em.submenuindicator {
+
+                height:8px;
+                width:8px;
+                margin:0 -16px 0 10px;
+            
+            }
+
+            
+
+           
+
+
+
+
+
