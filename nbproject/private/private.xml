@@ -8,9 +8,6 @@
             <file>file:/D:/SharedDownloads/Projekte/hcc/hcc_search_jsp/src/java/EncodingFilterSrvlt.java</file>
             <file>file:/D:/SharedDownloads/Projekte/hcc/hcc_search_jsp/Tomcat8/webapps/hcc_search_jsp/WEB-INF/web.xml</file>
         </group>
-        <group name="hcc">
-            <file>file:/X:/SharedDownloads/Projekte/hcc/hcc_search_jsp/src/java/getContentSrvlt.java</file>
-            <file>file:/X:/SharedDownloads/Projekte/hcc/hcc_search_jsp/src/java/scriptSrvlt.java</file>
-        </group>
+        <group name="hcc"/>
     </open-files>
 </project-private>

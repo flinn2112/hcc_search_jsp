@@ -133,6 +133,7 @@
       
   initMe = function(){
       //snap = new 
+      
       pf = new NS2112.INTRINSICS.PanelFactory2112() ;
       snap = pf.create( cbDrag, cbDrop, cbGrow, cbUnload, '',
 		 'snapInID', 'Indexinfo', 300, 400, 
@@ -162,55 +163,22 @@
      
       //JS Call)
       setClientCtxt( 'subst', '<%= strDriveSubst %>', '<%= strIniVal %>',<%= bSubstIsSet %> ) ;
-      setClientCtxt( 'pref', '<%= strClientPrefs %>', null, <%= (strClientPrefs != null)%> ) ;
-      
+      setClientCtxt( 'pref',  '<%= strClientPrefs %>', null, <%= (strClientPrefs != null)%> ) ;      
+      var el = document.getElementById("txtQuery") ;
+                if(el){   
+                    debugger ;
+                    el.value = "<%= request.getParameter("query")!=null?request.getParameter("query").replace("\"", "\\\""):"" %>" ;
+                }
+                else{
+                    //alert(<%= strQuery %> ) ;
+                }
   }
      </script>   
     </head>
     <body onload="initMe()">
         
         
-        <%
-        /*
-            //COOKIE HANDLING
-            Cookie c = null ;
-            Cookie[] cookies = request.getCookies();
-            //boolean foundCookie = false;
-            strDriveSubst = request.getParameter("subst") ;
-            boolean bParamEmpty = ( null != strDriveSubst && strDriveSubst.length() == 0 ) ;
-            boolean bParamSet = ( null != strDriveSubst && strDriveSubst.length() > 0 ) ;
-                
-            if( null != cookies ){
-                for(int i = 0; i < cookies.length; i++) { 
-                    c = cookies[i];                
-                    if (c.getName().equals("subst")){
-                        //foundCookie = true ;
-                        strDriveSubst = c.getValue() ;
-                    }                
-                }
-            }
-             
-            if( null != c  ){ //cookie is set, update or clear
-                if( bParamEmpty ){ //the param subst was set but empty
-                    strDriveSubst = null ;                   
-                    c.setMaxAge(0); //delete
-                    response.addCookie(c);
-                    response.sendError(406, "Deleting Subst");
-                }
-                else if(bParamSet){  //cookie is set - update
-                    strDriveSubst = request.getParameter("subst") ;
-                    c.setValue(strDriveSubst) ;                      
-                    response.addCookie(c);  
-                    response.sendError(406, "Resetting Subst to [" + strDriveSubst + "]");
-                }
-            } //cookie not set yet
-            else if(null == c && !bParamEmpty ) { //not set yet and have a value - then set
-                c = new Cookie("subst", strDriveSubst) ;                
-                response.addCookie(c); 
-                response.sendError(406, "Setting Subst to [" + strDriveSubst + "]");
-            }
-            */
-        %>
+
         
         <%            
             strQuery = request.getParameter("query") ;
@@ -247,7 +215,7 @@
             <INPUT   NAME="subst"  type="#############################hidden" readonly="true">
             <label for="pref">Prefs</label>
             <INPUT   NAME="pref"  type="#############################hidden" readonly="true">
-            <BR> <INPUT   NAME="query" size="72" value="<%= strQuery!=null?strQuery:"" %>">
+            <BR> <INPUT id="txtQuery"  NAME="query" size="72">
              <INPUT TYPE=SUBMIT VALUE="Search">
             </FORM>
         </div> <!-- search -->
@@ -296,12 +264,11 @@
                <br></br>
                <%= oResult!=null?oResult.m_strSearchResult:"empty" %>
                <% session.invalidate(); 
-                oResult = null ; 
-                strQuery = null ;
+                  oResult = null ;                 
                 //null!=oResult.m_sbLog?oResult.m_sbLog.toString():"no log" ;
               %>
             </div><!-- result -->
         </div>
-            
+        
     </body>
 </html>
